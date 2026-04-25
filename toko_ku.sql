@@ -476,6 +476,40 @@ ALTER TABLE `detail_transaksis`
 --
 ALTER TABLE `transaksis`
   ADD CONSTRAINT `transaksis_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `hutangs`
+--
+
+CREATE TABLE `hutangs` (
+  `id` bigint UNSIGNED NOT NULL,
+  `nama_peminjam` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nomor_hp` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `alamat` text COLLATE utf8mb4_unicode_ci,
+  `jumlah_hutang` decimal(15,2) NOT NULL,
+  `jumlah_bayar` decimal(15,2) NOT NULL DEFAULT '0.00',
+  `status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'belum_lunas',
+  `tanggal_hutang` date NOT NULL,
+  `tanggal_jatuh_tempo` date DEFAULT NULL,
+  `keterangan` text COLLATE utf8mb4_unicode_ci,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Indeks untuk tabel `hutangs`
+--
+ALTER TABLE `hutangs`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT untuk tabel `hutangs`
+--
+ALTER TABLE `hutangs`
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

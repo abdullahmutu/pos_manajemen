@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\TransaksiController;
+use App\Http\Controllers\HutangController;
 use App\Http\Middleware\AuthMiddleware;
 use Illuminate\Support\Facades\Route;
 
@@ -18,4 +19,6 @@ Route::middleware(AuthMiddleware::class)->group(function () {
 
     Route::resource('produk', ProdukController::class);
     Route::resource('transaksi', TransaksiController::class)->except(['edit', 'update']);
+    Route::resource('hutang', HutangController::class);
+    Route::post('hutang/{hutang}/bayar', [HutangController::class, 'bayar'])->name('hutang.bayar');
 });

@@ -1,0 +1,996 @@
+<!doctype html>
+<html lang="id">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Manual Pengguna - Aplikasi Toko Manajemen</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+                line-height: 1.6;
+                color: #333;
+                background: #f5f5f5;
+            }
+
+            .container {
+                max-width: 900px;
+                margin: 0 auto;
+                background: white;
+                padding: 60px 40px;
+            }
+
+            .header {
+                text-align: center;
+                margin-bottom: 50px;
+                border-bottom: 3px solid #1a3d2b;
+                padding-bottom: 30px;
+            }
+
+            .header h1 {
+                font-size: 2.5em;
+                color: #1a3d2b;
+                margin-bottom: 10px;
+            }
+
+            .header p {
+                font-size: 1.1em;
+                color: #666;
+            }
+
+            .toc {
+                background: #eaf2ec;
+                padding: 20px 25px;
+                border-left: 4px solid #1a3d2b;
+                margin: 30px 0;
+                border-radius: 4px;
+            }
+
+            .toc h2 {
+                color: #1a3d2b;
+                font-size: 1.3em;
+                margin-bottom: 15px;
+            }
+
+            .toc ol {
+                margin-left: 20px;
+            }
+
+            .toc li {
+                margin-bottom: 8px;
+            }
+
+            .toc a {
+                color: #1a3d2b;
+                text-decoration: none;
+            }
+
+            .toc a:hover {
+                text-decoration: underline;
+            }
+
+            section {
+                margin: 40px 0;
+                page-break-inside: avoid;
+            }
+
+            h2 {
+                color: #1a3d2b;
+                font-size: 1.8em;
+                margin-bottom: 15px;
+                padding-bottom: 10px;
+                border-bottom: 2px solid #c9972c;
+            }
+
+            h3 {
+                color: #2d5a3d;
+                font-size: 1.3em;
+                margin-top: 20px;
+                margin-bottom: 10px;
+            }
+
+            p {
+                margin-bottom: 12px;
+                text-align: justify;
+            }
+
+            .feature-list {
+                background: #f9f9f9;
+                padding: 20px;
+                border-radius: 4px;
+                margin: 15px 0;
+            }
+
+            .feature-list ul {
+                list-style-position: inside;
+                margin-left: 10px;
+            }
+
+            .feature-list li {
+                margin-bottom: 8px;
+                padding-left: 10px;
+            }
+
+            .step-box {
+                background: #fffbf0;
+                border-left: 4px solid #c9972c;
+                padding: 15px 20px;
+                margin: 15px 0;
+                border-radius: 3px;
+            }
+
+            .step-box strong {
+                color: #c9972c;
+            }
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin: 20px 0;
+            }
+
+            table thead {
+                background: #1a3d2b;
+                color: white;
+            }
+
+            table th,
+            table td {
+                padding: 12px;
+                text-align: left;
+                border-bottom: 1px solid #ddd;
+            }
+
+            table tbody tr:nth-child(even) {
+                background: #f9f9f9;
+            }
+
+            .note {
+                background: #fff3cd;
+                border-left: 4px solid #ff9800;
+                padding: 15px;
+                margin: 15px 0;
+                border-radius: 3px;
+            }
+
+            .success {
+                background: #d4edda;
+                border-left: 4px solid #28a745;
+                padding: 15px;
+                margin: 15px 0;
+                border-radius: 3px;
+            }
+
+            .info {
+                background: #d1ecf1;
+                border-left: 4px solid #17a2b8;
+                padding: 15px;
+                margin: 15px 0;
+                border-radius: 3px;
+            }
+
+            .screenshot-placeholder {
+                background: #f0f0f0;
+                border: 2px dashed #999;
+                padding: 40px;
+                text-align: center;
+                margin: 20px 0;
+                border-radius: 4px;
+                color: #666;
+            }
+
+            .button-style {
+                display: inline-block;
+                background: #1a3d2b;
+                color: white;
+                padding: 8px 12px;
+                border-radius: 3px;
+                font-family: monospace;
+                font-size: 0.9em;
+            }
+
+            .footer {
+                margin-top: 60px;
+                padding-top: 30px;
+                border-top: 2px solid #ddd;
+                text-align: center;
+                color: #999;
+                font-size: 0.9em;
+            }
+
+            .page-break {
+                page-break-after: always;
+            }
+
+            .status-badge {
+                display: inline-block;
+                padding: 4px 8px;
+                border-radius: 20px;
+                font-size: 0.85em;
+                font-weight: bold;
+            }
+
+            .status-red {
+                background: #ffebee;
+                color: #dc2626;
+            }
+
+            .status-yellow {
+                background: #fff3cd;
+                color: #ea580c;
+            }
+
+            .status-green {
+                background: #d4edda;
+                color: #059669;
+            }
+
+            .menu-path {
+                background: #f5f5f5;
+                padding: 5px 8px;
+                border-radius: 3px;
+                font-family: monospace;
+                color: #666;
+            }
+
+            @media print {
+                body {
+                    background: white;
+                }
+                .container {
+                    max-width: 100%;
+                    padding: 40px;
+                    margin: 0;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <!-- HEADER -->
+            <div class="header">
+                <h1>📚 MANUAL PENGGUNA</h1>
+                <h2
+                    style="
+                        border: none;
+                        margin: 15px 0;
+                        font-size: 1.3em;
+                        color: #666;
+                    "
+                >
+                    Aplikasi Toko Manajemen
+                </h2>
+                <p>Sistem Kasir & Manajemen Hutang Terintegrasi</p>
+                <p style="margin-top: 20px; font-size: 0.9em; color: #999">
+                    Versi 1.0 | 2026
+                </p>
+            </div>
+
+            <!-- TABLE OF CONTENTS -->
+            <div class="toc">
+                <h2>📑 Daftar Isi</h2>
+                <ol>
+                    <li><a href="#overview">Gambaran Umum Aplikasi</a></li>
+                    <li><a href="#login">Cara Login</a></li>
+                    <li><a href="#dashboard">Dashboard & Menu Utama</a></li>
+                    <li><a href="#produk">Manajemen Produk</a></li>
+                    <li><a href="#kasir">Sistem Kasir (POS)</a></li>
+                    <li><a href="#transaksi">Riwayat Transaksi</a></li>
+                    <li><a href="#hutang">Manajemen Hutang</a></li>
+                    <li><a href="#tips">Tips & Trik</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ol>
+            </div>
+
+            <!-- 1. OVERVIEW -->
+            <section id="overview">
+                <h2>1. 📱 Gambaran Umum Aplikasi</h2>
+
+                <h3>Apa itu Aplikasi Toko Manajemen?</h3>
+                <p>
+                    Aplikasi Toko Manajemen adalah sistem terintegrasi yang
+                    dirancang untuk membantu mengelola operasional toko retail
+                    dengan efisien. Aplikasi ini menyediakan fitur lengkap untuk
+                    manajemen produk, sistem kasir, pencatatan transaksi, dan
+                    manajemen hutang pelanggan.
+                </p>
+
+                <h3>Fitur-Fitur Utama</h3>
+                <div class="feature-list">
+                    <ul>
+                        <li>
+                            <strong>Dashboard</strong> - Informasi ringkas
+                            tentang toko Anda
+                        </li>
+                        <li>
+                            <strong>Manajemen Produk</strong> - Tambah, edit,
+                            hapus, dan kelola stok produk
+                        </li>
+                        <li>
+                            <strong>Sistem Kasir (POS)</strong> - Proses
+                            transaksi penjualan real-time
+                        </li>
+                        <li>
+                            <strong>Riwayat Transaksi</strong> - Lihat detail
+                            semua transaksi yang telah dilakukan
+                        </li>
+                        <li>
+                            <strong>Manajemen Hutang</strong> - Catat, pantau,
+                            dan kelola hutang pelanggan
+                        </li>
+                        <li>
+                            <strong>Filter & Pencarian</strong> - Cari data
+                            dengan mudah berdasarkan kriteria
+                        </li>
+                    </ul>
+                </div>
+
+                <h3>Persyaratan Akses</h3>
+                <p>Untuk menggunakan aplikasi ini, Anda memerlukan:</p>
+                <ul style="margin-left: 20px">
+                    <li>Username dan password yang diberikan admin</li>
+                    <li>Browser web modern (Chrome, Firefox, Safari, Edge)</li>
+                    <li>Koneksi internet yang stabil</li>
+                </ul>
+            </section>
+
+            <!-- 2. LOGIN -->
+            <section id="login">
+                <h2>2. 🔐 Cara Login</h2>
+
+                <h3>Langkah-Langkah Login</h3>
+                <div class="step-box">
+                    <strong>Step 1:</strong> Buka aplikasi di browser Anda<br />
+                    Akses URL:
+                    <span class="menu-path">http://localhost:8000/login</span>
+                </div>
+
+                <div class="step-box">
+                    <strong>Step 2:</strong> Masukkan username/email<br />
+                    Gunakan email atau username yang telah diberikan
+                </div>
+
+                <div class="step-box">
+                    <strong>Step 3:</strong> Masukkan password<br />
+                    Ketikkan password dengan benar (case-sensitive)
+                </div>
+
+                <div class="step-box">
+                    <strong>Step 4:</strong> Klik tombol "Login"<br />
+                    Tunggu hingga aplikasi memproses login Anda
+                </div>
+
+                <h3>Akun Default (Demo)</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Role</th>
+                            <th>Email</th>
+                            <th>Password</th>
+                            <th>Akses</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Admin</td>
+                            <td>admin@toko.com</td>
+                            <td>password</td>
+                            <td>Semua fitur</td>
+                        </tr>
+                        <tr>
+                            <td>Kasir</td>
+                            <td>kasir@toko.com</td>
+                            <td>password</td>
+                            <td>Kasir & Transaksi</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="note">
+                    ⚠️ <strong>Penting:</strong> Ganti password default Anda
+                    sesegera mungkin untuk keamanan yang lebih baik!
+                </div>
+            </section>
+
+            <!-- 3. DASHBOARD -->
+            <section id="dashboard">
+                <h2>3. 🏠 Dashboard & Menu Utama</h2>
+
+                <h3>Tampilan Dashboard</h3>
+                <p>
+                    Setelah login, Anda akan melihat dashboard yang menampilkan
+                    informasi ringkas tentang toko Anda:
+                </p>
+
+                <div class="feature-list">
+                    <ul>
+                        <li>
+                            <strong>Sidebar Menu</strong> - Menu navigasi utama
+                            di sebelah kiri
+                        </li>
+                        <li>
+                            <strong>Header/Topbar</strong> - Menampilkan judul
+                            halaman dan informasi user
+                        </li>
+                        <li>
+                            <strong>Area Konten</strong> - Konten utama aplikasi
+                        </li>
+                    </ul>
+                </div>
+
+                <h3>Menu Sidebar</h3>
+                <p>Menu sidebar terbagi menjadi beberapa grup:</p>
+
+                <h4>UTAMA</h4>
+                <ul style="margin-left: 20px">
+                    <li>
+                        <strong>Dashboard</strong> - Halaman utama dengan
+                        ringkasan informasi
+                    </li>
+                    <li><strong>Produk</strong> - Kelola master data produk</li>
+                </ul>
+
+                <h4>PENJUALAN</h4>
+                <ul style="margin-left: 20px">
+                    <li>
+                        <strong>Kasir</strong> - Akses sistem POS untuk
+                        transaksi penjualan
+                    </li>
+                    <li>
+                        <strong>Riwayat Transaksi</strong> - Lihat daftar semua
+                        transaksi
+                    </li>
+                    <li>
+                        <strong>Manajemen Hutang</strong> - Kelola hutang
+                        pelanggan
+                    </li>
+                </ul>
+
+                <div class="info">
+                    ℹ️ Menu yang tersedia bergantung pada role/hak akses Anda
+                </div>
+            </section>
+
+            <!-- 4. PRODUK -->
+            <section id="produk">
+                <h2>4. 📦 Manajemen Produk</h2>
+
+                <h3>Mengakses Menu Produk</h3>
+                <p>
+                    Klik menu <span class="menu-path">Produk</span> di sidebar
+                    untuk membuka halaman manajemen produk.
+                </p>
+
+                <h3>Fitur Utama</h3>
+
+                <h4>📋 Melihat Daftar Produk</h4>
+                <p>Halaman produk menampilkan tabel dengan informasi:</p>
+                <ul style="margin-left: 20px">
+                    <li>Nama produk</li>
+                    <li>Kategori</li>
+                    <li>Harga beli & harga jual</li>
+                    <li>Stok tersedia</li>
+                    <li>Satuan (pcs, kg, liter, dll)</li>
+                </ul>
+
+                <h4>🔍 Mencari & Memfilter Produk</h4>
+                <div class="step-box">
+                    <strong>Cari berdasarkan nama/kategori:</strong><br />
+                    1. Masukkan nama atau kategori di kolom pencarian<br />
+                    2. (Opsional) Pilih kategori dari dropdown<br />
+                    3. Klik tombol <span class="button-style">Cari</span>
+                </div>
+
+                <h4>➕ Menambah Produk Baru</h4>
+                <div class="step-box">
+                    <strong>Step 1:</strong> Klik tombol "Tambah Produk" di
+                    bagian atas<br />
+                    <strong>Step 2:</strong> Isi form dengan data produk:<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;• Nama Produk (wajib)<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;• Kategori (wajib)<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;• Harga Beli (wajib)<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;• Harga Jual (wajib)<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;• Stok (wajib)<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;• Satuan (wajib)<br />
+                    <strong>Step 3:</strong> Klik "Simpan"
+                </div>
+
+                <h4>✏️ Mengedit Produk</h4>
+                <div class="step-box">
+                    <strong>Step 1:</strong> Cari produk yang ingin diedit<br />
+                    <strong>Step 2:</strong> Klik icon
+                    <strong>Pensil (Edit)</strong> di kolom Aksi<br />
+                    <strong>Step 3:</strong> Ubah data yang diinginkan<br />
+                    <strong>Step 4:</strong> Klik "Update"
+                </div>
+
+                <h4>🗑️ Menghapus Produk</h4>
+                <div class="step-box">
+                    <strong>Step 1:</strong> Cari produk yang ingin dihapus<br />
+                    <strong>Step 2:</strong> Klik icon
+                    <strong>Trash (Hapus)</strong> di kolom Aksi<br />
+                    <strong>Step 3:</strong> Konfirmasi penghapusan
+                </div>
+            </section>
+
+            <div class="page-break"></div>
+
+            <!-- 5. KASIR -->
+            <section id="kasir">
+                <h2>5. 💳 Sistem Kasir (POS)</h2>
+
+                <h3>Mengakses Kasir</h3>
+                <p>
+                    Klik menu <span class="menu-path">Kasir</span> (badge POS)
+                    di sidebar untuk membuka sistem kasir.
+                </p>
+
+                <h3>Interface Kasir</h3>
+                <div class="feature-list">
+                    <ul>
+                        <li>
+                            <strong>Daftar Produk</strong> - Tampilan grid/list
+                            produk yang dapat dipilih
+                        </li>
+                        <li>
+                            <strong>Keranjang Belanja</strong> - Produk yang
+                            dipilih akan masuk ke keranjang
+                        </li>
+                        <li>
+                            <strong>Ringkasan Pembayaran</strong> - Total harga
+                            dan perhitungan kembalian
+                        </li>
+                        <li>
+                            <strong>Aksi Transaksi</strong> - Tombol untuk
+                            menyelesaikan atau membatalkan transaksi
+                        </li>
+                    </ul>
+                </div>
+
+                <h3>Langkah-Langkah Membuat Transaksi</h3>
+
+                <h4>1️⃣ Memilih Produk</h4>
+                <div class="step-box">
+                    • Cari produk menggunakan kolom pencarian<br />
+                    • Klik produk untuk menambahkannya ke keranjang<br />
+                    • Atau masukkan jumlah dan klik "Tambah"
+                </div>
+
+                <h4>2️⃣ Mengelola Keranjang</h4>
+                <div class="step-box">
+                    • Lihat daftar produk di keranjang<br />
+                    • Ubah jumlah (qty) jika diperlukan<br />
+                    • Hapus produk dengan klik icon trash<br />
+                    • Otomatis terhitung subtotal untuk setiap item
+                </div>
+
+                <h4>3️⃣ Konfirmasi Pembayaran</h4>
+                <div class="step-box">
+                    • Total harga otomatis dihitung<br />
+                    • Masukkan jumlah uang yang diterima dari pembeli<br />
+                    • Sistem otomatis menghitung kembalian<br />
+                    • Tambahkan catatan (opsional)
+                </div>
+
+                <h4>4️⃣ Selesaikan Transaksi</h4>
+                <div class="step-box">
+                    • Verifikasi semua data<br />
+                    • Klik "Selesaikan Transaksi"<br />
+                    • Simpan atau cetak struk (jika diperlukan)<br />
+                    • Keranjang akan otomatis kosong untuk transaksi baru
+                </div>
+
+                <div class="note">
+                    💡 <strong>Tips:</strong> Gunakan fitur kategori untuk
+                    mempercepat pencarian produk saat ramai!
+                </div>
+            </section>
+
+            <!-- 6. TRANSAKSI -->
+            <section id="transaksi">
+                <h2>6. 📊 Riwayat Transaksi</h2>
+
+                <h3>Mengakses Riwayat Transaksi</h3>
+                <p>
+                    Klik menu
+                    <span class="menu-path">Riwayat Transaksi</span> di sidebar
+                    untuk melihat semua transaksi yang telah dilakukan.
+                </p>
+
+                <h3>Informasi yang Ditampilkan</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Kolom</th>
+                            <th>Keterangan</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>No. Transaksi</td>
+                            <td>
+                                ID unik setiap transaksi (TRX-YYYYMMDD-####)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Tanggal</td>
+                            <td>Waktu transaksi dilakukan</td>
+                        </tr>
+                        <tr>
+                            <td>Total Harga</td>
+                            <td>Total nilai transaksi</td>
+                        </tr>
+                        <tr>
+                            <td>Bayar</td>
+                            <td>Jumlah uang yang diterima</td>
+                        </tr>
+                        <tr>
+                            <td>Kembalian</td>
+                            <td>Jumlah uang kembalian</td>
+                        </tr>
+                        <tr>
+                            <td>Detail</td>
+                            <td>Lihat detail produk dalam transaksi</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Melihat Detail Transaksi</h3>
+                <div class="step-box">
+                    • Cari transaksi yang ingin dilihat<br />
+                    • Klik icon <strong>Mata (View)</strong> di kolom Aksi<br />
+                    • Anda akan melihat daftar produk yang dibeli dalam
+                    transaksi tersebut
+                </div>
+            </section>
+
+            <!-- 7. HUTANG -->
+            <section id="hutang">
+                <h2>7. 💰 Manajemen Hutang</h2>
+
+                <h3>Mengakses Menu Hutang</h3>
+                <p>
+                    Klik menu <span class="menu-path">Manajemen Hutang</span> di
+                    bagian "Keuangan" pada sidebar.
+                </p>
+
+                <h3>Fitur-Fitur Hutang</h3>
+
+                <h4>📋 Melihat Daftar Hutang</h4>
+                <p>Halaman utama hutang menampilkan tabel dengan informasi:</p>
+                <ul style="margin-left: 20px">
+                    <li>
+                        <strong>Nama Peminjam</strong> - Nama orang yang
+                        berhutang
+                    </li>
+                    <li>
+                        <strong>Nomor HP</strong> - Nomor telepon (opsional)
+                    </li>
+                    <li><strong>Jumlah Hutang</strong> - Total hutang</li>
+                    <li>
+                        <strong>Sudah Dibayar</strong> - Total pembayaran yang
+                        diterima
+                    </li>
+                    <li>
+                        <strong>Sisa Hutang</strong> - Hutang yang masih tersisa
+                        (otomatis dihitung)
+                    </li>
+                    <li><strong>Status</strong> - Status pembayaran</li>
+                </ul>
+
+                <h4>🏷️ Status Hutang</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Status</th>
+                            <th>Kondisi</th>
+                            <th>Warna</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <span class="status-badge status-red"
+                                    >Belum Lunas</span
+                                >
+                            </td>
+                            <td>Belum ada pembayaran sama sekali</td>
+                            <td>Merah</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="status-badge status-yellow"
+                                    >Sebagian Lunas</span
+                                >
+                            </td>
+                            <td>Ada pembayaran tapi belum total</td>
+                            <td>Kuning</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="status-badge status-green"
+                                    >Lunas</span
+                                >
+                            </td>
+                            <td>Pembayaran sudah lengkap</td>
+                            <td>Hijau</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Operasi CRUD Hutang</h3>
+
+                <h4>➕ Menambah Hutang Baru</h4>
+                <div class="step-box">
+                    <strong>Step 1:</strong> Klik tombol "Tambah Hutang"<br />
+                    <strong>Step 2:</strong> Isi form dengan data:<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;•
+                    <strong>Nama Peminjam</strong> (wajib)<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;• Nomor HP (opsional)<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;• Alamat (opsional)<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;•
+                    <strong>Jumlah Hutang</strong> (wajib)<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;•
+                    <strong>Tanggal Hutang</strong> (wajib)<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;• Tanggal Jatuh Tempo (opsional)<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;• Keterangan (opsional)<br />
+                    <strong>Step 3:</strong> Klik "Simpan"
+                </div>
+
+                <h4>👁️ Melihat Detail Hutang</h4>
+                <div class="step-box">
+                    • Klik icon <strong>Mata (View)</strong> di kolom Aksi<br />
+                    • Anda akan melihat informasi lengkap hutang<br />
+                    • Termasuk perhitungan sisa hutang otomatis
+                </div>
+
+                <h4>✏️ Mengedit Data Hutang</h4>
+                <div class="step-box">
+                    <strong>Step 1:</strong> Klik icon
+                    <strong>Pensil (Edit)</strong> di kolom Aksi<br />
+                    <strong>Step 2:</strong> Ubah data yang diperlukan<br />
+                    <strong>Step 3:</strong> Klik "Update"
+                </div>
+
+                <h4>💵 Mencatat Pembayaran Hutang</h4>
+                <div class="step-box">
+                    <strong>Step 1:</strong> Klik icon
+                    <strong>Mata</strong> untuk melihat detail hutang<br />
+                    <strong>Step 2:</strong> Scroll ke bawah ke bagian "Catat
+                    Pembayaran"<br />
+                    <strong>Step 3:</strong> Masukkan
+                    <strong>Jumlah Pembayaran</strong><br />
+                    <strong>Step 4:</strong> Klik "Catat Pembayaran"<br />
+                    <strong>Step 5:</strong> Status hutang akan otomatis update
+                </div>
+
+                <h4>🗑️ Menghapus Hutang</h4>
+                <div class="step-box">
+                    • Klik icon <strong>Trash (Hapus)</strong> di kolom Aksi<br />
+                    • Konfirmasi penghapusan<br />
+                    • Data hutang akan dihapus permanen
+                </div>
+
+                <h3>🔍 Filter & Pencarian Hutang</h3>
+                <div class="step-box">
+                    <strong>Cari berdasarkan nama peminjam:</strong><br />
+                    1. Masukkan nama di kolom pencarian<br />
+                    2. Klik <span class="button-style">Cari</span><br /><br />
+
+                    <strong>Filter berdasarkan status:</strong><br />
+                    1. Pilih status dari dropdown (Belum Lunas, Sebagian Lunas,
+                    Lunas)<br />
+                    2. Klik <span class="button-style">Cari</span><br /><br />
+
+                    <strong>Kombinasi pencarian:</strong><br />
+                    1. Masukkan nama DAN pilih status<br />
+                    2. Klik <span class="button-style">Cari</span>
+                </div>
+
+                <div class="success">
+                    ✅ <strong>Tip:</strong> Pembayaran cicilan otomatis
+                    mengupdate status hutang. Jika pembayaran mencapai total
+                    hutang, status akan langsung berubah menjadi "Lunas"!
+                </div>
+            </section>
+
+            <div class="page-break"></div>
+
+            <!-- 8. TIPS -->
+            <section id="tips">
+                <h2>8. 💡 Tips & Trik</h2>
+
+                <h3>Tips Efisiensi Kasir</h3>
+                <div class="feature-list">
+                    <ul>
+                        <li>
+                            <strong>Gunakan kategori produk</strong> -
+                            Mempercepat pencarian saat kasir ramai
+                        </li>
+                        <li>
+                            <strong>Update stok rutin</strong> - Periksa stok
+                            produk secara berkala
+                        </li>
+                        <li>
+                            <strong>Catat transaksi langsung</strong> - Jangan
+                            menunda input data transaksi
+                        </li>
+                        <li>
+                            <strong>Verifikasi harga jual</strong> - Pastikan
+                            harga jual sudah update sebelum transaksi
+                        </li>
+                    </ul>
+                </div>
+
+                <h3>Tips Manajemen Hutang</h3>
+                <div class="feature-list">
+                    <ul>
+                        <li>
+                            <strong>Atur tanggal jatuh tempo</strong> - Membantu
+                            tracking pembayaran
+                        </li>
+                        <li>
+                            <strong>Catat kontak pelanggan</strong> - Simpan
+                            nomor HP untuk reminder pembayaran
+                        </li>
+                        <li>
+                            <strong>Update pembayaran tepat waktu</strong> -
+                            Agar data selalu akurat
+                        </li>
+                        <li>
+                            <strong>Gunakan catatan</strong> - Tambahkan
+                            keterangan khusus jika diperlukan
+                        </li>
+                        <li>
+                            <strong>Pantau status hutang</strong> - Filter
+                            berdasarkan status "Belum Lunas" untuk reminder
+                            pembayaran
+                        </li>
+                    </ul>
+                </div>
+
+                <h3>Keyboard Shortcuts</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Shortcut</th>
+                            <th>Fungsi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Ctrl/Cmd + F</td>
+                            <td>Buka pencarian di halaman</td>
+                        </tr>
+                        <tr>
+                            <td>Ctrl/Cmd + P</td>
+                            <td>Print/Cetak halaman</td>
+                        </tr>
+                        <tr>
+                            <td>Enter</td>
+                            <td>Kirim form (di form input)</td>
+                        </tr>
+                        <tr>
+                            <td>Esc</td>
+                            <td>Batalkan action</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- 9. FAQ -->
+            <section id="faq">
+                <h2>9. ❓ FAQ (Pertanyaan Umum)</h2>
+
+                <h3>Pertanyaan Umum</h3>
+
+                <h4>T: Bagaimana jika saya lupa password?</h4>
+                <p>
+                    J: Hubungi administrator untuk mereset password Anda. Jangan
+                    bagikan password kepada orang lain!
+                </p>
+
+                <h4>
+                    T: Bisakah saya mengembalikan transaksi yang sudah selesai?
+                </h4>
+                <p>
+                    J: Hubungi administrator untuk membatalkan atau merevisi
+                    transaksi. Riwayat transaksi tidak bisa dihapus secara
+                    langsung untuk audit trail.
+                </p>
+
+                <h4>T: Bagaimana jika stok produk kurang?</h4>
+                <p>
+                    J: Update stok di menu Produk. Klik edit produk dan ubah
+                    jumlah stok. Pastikan stok selalu tercatat dengan akurat.
+                </p>
+
+                <h4>
+                    T: Apakah pembayaran hutang cicilan bisa dicatat
+                    berkali-kali?
+                </h4>
+                <p>
+                    J: Ya! Setiap kali Anda mencatat pembayaran, status hutang
+                    akan otomatis update sesuai sisa yang belum dibayar.
+                </p>
+
+                <h4>T: Bagaimana menghapus transaksi yang salah?</h4>
+                <p>
+                    J: Hubungi administrator. Transaksi yang sudah selesai tidak
+                    dapat dihapus langsung oleh user biasa untuk keamanan data.
+                </p>
+
+                <h4>T: Apakah ada batasan jumlah transaksi per hari?</h4>
+                <p>
+                    J: Tidak ada batasan. Sistem dapat menangani ratusan
+                    transaksi setiap harinya.
+                </p>
+
+                <h4>
+                    T: Bisakah saya mengubah harga setelah transaksi selesai?
+                </h4>
+                <p>
+                    J: Tidak. Harga dalam riwayat transaksi bersifat tetap. Jika
+                    ada kesalahan, hubungi administrator.
+                </p>
+
+                <h4>T: Bagaimana jika pembeli membatalkan pembelian?</h4>
+                <p>
+                    J: Hubungi administrator untuk membatalkan transaksi dan
+                    mengembalikan stok produk.
+                </p>
+
+                <h4>T: Apakah data hutang bisa diexport?</h4>
+                <p>
+                    J: Fitur export sedang dalam pengembangan. Hubungi
+                    administrator jika memerlukan laporan hutang.
+                </p>
+
+                <h4>T: Bagaimana cara backup data aplikasi?</h4>
+                <p>
+                    J: Administrator akan melakukan backup data secara berkala.
+                    Hubungi admin jika memerlukan backup khusus.
+                </p>
+            </section>
+
+            <!-- CLOSING -->
+            <section>
+                <h2>📞 Dukungan & Bantuan</h2>
+                <p>
+                    Jika Anda mengalami masalah atau memiliki pertanyaan yang
+                    tidak terjawab di manual ini, silakan hubungi:
+                </p>
+                <div class="info">
+                    <strong>Administrator Sistem:</strong><br />
+                    Email: admin@toko.com<br />
+                    Telepon: [Nomor kontak admin]<br />
+                    Jam kerja: Senin - Jumat, 08:00 - 17:00
+                </div>
+            </section>
+
+            <!-- FOOTER -->
+            <div class="footer">
+                <p>© 2026 Aplikasi Toko Manajemen. Semua hak dilindungi.</p>
+                <p>
+                    Dokumen ini adalah panduan penggunaan resmi dan dapat
+                    diperbarui sewaktu-waktu.
+                </p>
+                <p>Versi 1.0 | Terakhir diperbarui: 25 April 2026</p>
+            </div>
+        </div>
+
+        <script>
+            // Print friendly version
+            window.print = function () {
+                if (window.print) {
+                    window.print();
+                }
+            };
+        </script>
+    </body>
+</html>
